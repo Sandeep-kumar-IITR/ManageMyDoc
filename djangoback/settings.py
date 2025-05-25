@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-7u%og39_i2qotd+dw3t%7(t+^)4p&za6=1v$h(!!&p-5s-f$50"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -73,7 +73,7 @@ REST_FRAMEWORK = {
 #     "http://127.0.0.1:3000",
 # ]
 # https://sandeep-kumar-pets.onrender.com
-ALLOWED_HOSTS = ['https://sandeep-kumar-pets.onrender.com']
+ALLOWED_HOSTS = ['http://localhost:3000/']
 
 
 ROOT_URLCONF = "djangoback.urls"
