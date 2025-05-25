@@ -71,13 +71,31 @@ REST_FRAMEWORK = {
 }
 
 
+# ✅ Allow all origins (for development only)
+CORS_ALLOW_ALL_ORIGINS = True
 
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS
+# ✅ Allow all HTTP methods
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
-# Access-Control-Allow-Origin: *
-# Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
-# Access-Control-Allow-Headers: Content-Type, Authorization
+# ✅ Optional: allow all headers (you can customize this as needed)
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
 
 # CORS_ALLOWED_ORIGINS = [
