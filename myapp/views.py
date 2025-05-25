@@ -25,7 +25,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 import os
-import fitz  # PyMuPDF
+
 import google.generativeai as genai
 from .models import Doc
 from .serializers import DocSerializer
