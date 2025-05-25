@@ -72,16 +72,24 @@ REST_FRAMEWORK = {
 
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://managemydoc.onrender.com",
-]
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS
 
-CORS_ALLOW_CREDENTIALS = True
+# Access-Control-Allow-Origin: *
+# Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+# Access-Control-Allow-Headers: Content-Type, Authorization
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "https://managemydoc.onrender.com",
+# ]
+
+# CORS_ALLOW_CREDENTIALS = True
+
+# ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # CORS_ALLOW_ALL_ORIGINS = True  # Old name: CORS_ORIGIN_ALLOW_ALL = True
