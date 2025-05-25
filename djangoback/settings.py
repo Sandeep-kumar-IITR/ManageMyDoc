@@ -57,6 +57,9 @@ MIDDLEWARE = [
 ]
 
 
+
+
+
 REST_FRAMEWORK = {
     
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -72,8 +75,13 @@ REST_FRAMEWORK = {
 #     "http://localhost:3000",
 #     "http://127.0.0.1:3000",
 # ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://managemydoc.onrender.com",  # Optional, if needed
+]
 # https://sandeep-kumar-pets.onrender.com
-ALLOWED_HOSTS = ['http://localhost:3000/']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 ROOT_URLCONF = "djangoback.urls"
