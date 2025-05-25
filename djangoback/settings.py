@@ -70,31 +70,32 @@ REST_FRAMEWORK = {
     
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:9000",
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
-# ✅ Allow all HTTP methods
-CORS_ALLOW_METHODS = [
+CORS_ALLOW_METHODS = (
     "DELETE",
     "GET",
     "OPTIONS",
     "PATCH",
     "POST",
     "PUT",
-]
+)
 
-# ✅ Optional: allow all headers (you can customize this as needed)
-CORS_ALLOW_HEADERS = [
+
+CORS_ALLOW_HEADERS = (
     "accept",
-    "accept-encoding",
     "authorization",
     "content-type",
-    "dnt",
-    "origin",
     "user-agent",
     "x-csrftoken",
     "x-requested-with",
-]
+)
 
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:3000",
