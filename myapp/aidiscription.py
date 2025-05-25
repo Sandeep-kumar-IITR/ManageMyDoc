@@ -1,12 +1,12 @@
 import google.generativeai as genai
-import fitz  # PyMuPDF
+
 # Configure your Gemini API Key
 
 # from .views import Listdoc
 from .models import Doc
 from .models import ChatMessage
 from django.contrib.auth.models import User
-
+import pdfplumber
 
 def generate_ai_description_from_pdf_text(text):
     genai.configure(api_key="AIzaSyBzAUSFhBrF4HPUUwxObFnXItzBf5ie0uM")
@@ -39,9 +39,17 @@ def generate_ai_user_response(usser,text):
     response = client.generate_content(prompt)
     return response.text
 
+# def extract_text_from_pdf(file_path):
+#     text = ""
+#     with fitz.open(file_path) as doc:
+#         for page in doc:
+#             text += page.get_text()
+#     return text.strip()
+
+
 def extract_text_from_pdf(file_path):
     text = ""
-    with fitz.open(file_path) as doc:
-        for page in doc:
-            text += page.get_text()
+    with pdfplumber.open(file_path) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text() or ""  # Avoid NoneType
     return text.strip()
