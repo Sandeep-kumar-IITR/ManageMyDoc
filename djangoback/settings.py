@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -98,36 +98,9 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "https://managemydoc.onrender.com",
-# ]
-
-# CORS_ALLOW_CREDENTIALS = True
-
-# ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
-
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-# CORS_ALLOW_ALL_ORIGINS = True  # Old name: CORS_ORIGIN_ALLOW_ALL = True
 
-# CORS_ALLOWED_ORIGINS = [
-
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "https://managemydoc.onrender.com",  # Optional, if needed
-# ]
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# CORS_ALLOW_CREDENTIALS = True
-
-
-# # https://sandeep-kumar-pets.onrender.com
-# ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 
