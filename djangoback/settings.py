@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-7u%og39_i2qotd+dw3t%7(t+^)4p&za6=1v$h(!!&p-5s-f$50"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
@@ -75,10 +75,12 @@ REST_FRAMEWORK = {
 #     "http://localhost:3000",
 #     "http://127.0.0.1:3000",
 # ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://managemydoc.onrender.com",  # Optional, if needed
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "https://managemydoc.onrender.com",  # Optional, if needed
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 # https://sandeep-kumar-pets.onrender.com
 ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
