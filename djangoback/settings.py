@@ -37,14 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "rest_framework",
     "rest_framework_simplejwt",
     "myapp",
-    "corsheaders",
+    
 ]
 
 MIDDLEWARE = [
-     "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
 
     "django.middleware.security.SecurityMiddleware",
@@ -68,6 +69,21 @@ REST_FRAMEWORK = {
     )
     
 }
+
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://managemydoc.onrender.com",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 # CORS_ALLOW_ALL_ORIGINS = True  # Old name: CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ALLOWED_ORIGINS = [
@@ -79,10 +95,13 @@ REST_FRAMEWORK = {
 #     "http://localhost:3000",
 #     "https://managemydoc.onrender.com",  # Optional, if needed
 # ]
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
-# https://sandeep-kumar-pets.onrender.com
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
+# CORS_ALLOW_CREDENTIALS = True
+
+
+# # https://sandeep-kumar-pets.onrender.com
+# ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 
