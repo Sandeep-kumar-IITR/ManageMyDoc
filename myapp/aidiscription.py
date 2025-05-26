@@ -6,7 +6,7 @@ import google.generativeai as genai
 from .models import Doc
 from .models import ChatMessage
 from django.contrib.auth.models import User
-import pdfplumber
+# import pdfplumber
 
 def generate_ai_description_from_pdf_text(text):
     genai.configure(api_key="AIzaSyBzAUSFhBrF4HPUUwxObFnXItzBf5ie0uM")
@@ -48,8 +48,8 @@ def generate_ai_user_response(usser,text):
 
 
 def extract_text_from_pdf(file_path):
-    text = ""
-    with pdfplumber.open(file_path) as pdf:
-        for page in pdf.pages:
-            text += page.extract_text() or ""  # Avoid NoneType
-    return text.strip()
+    text = "abc"
+    # with pdfplumber.open(file_path) as pdf:
+    #     for page in pdf.pages:
+    #         text += page.extract_text() or ""  # Avoid NoneType
+    return text
