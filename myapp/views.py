@@ -25,7 +25,6 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 import os
-
 import google.generativeai as genai
 from .models import Doc
 from .serializers import DocSerializer
@@ -37,7 +36,7 @@ from .models import ChatMessage
 from .serializers import ChatMessageSerializer
 
 from .permission import IsOwnerchatlist 
-
+from django.http import FileResponse, Http404
 
 from .aidiscription import generate_ai_description_from_pdf_text, extract_text_from_pdf , generate_ai_user_response
 
@@ -161,4 +160,21 @@ class CreateChatMessage(generics.CreateAPIView):
         doc.save()
 
 
-       
+
+
+class DisplayPDFView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]  # Add IsOwner here if needed
+    queryset = Doc.objects.all()  # Needed for `get_object()` to work
+
+    def get(self, request, filename):
+        try:
+            # Only allow access to the current user's files (optional but recommended)
+            doc = self.get_queryset().get(user=request.user, pdf_file=filename)
+            pdf_path = os.path.join(settings.MEDIA_ROOT, doc.pdf_file.name)
+        except Doc.DoesNotExist:
+            raise Http404("PDF not found")
+
+        if os.path.exists(pdf_path):
+            return FileResponse(open(pdf_path, 'rb'), content_type='application/pdf')
+        else:
+            raise Http404("PDF file missing on server")
