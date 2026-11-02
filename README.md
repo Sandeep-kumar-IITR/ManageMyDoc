@@ -1,87 +1,61 @@
-# ManageMyDocument Backend
+# ManageMyDocument — Backend
 
-This is the **backend** repository for the Document Management Portal with AI Integration.  
-Built using **Django + Django REST Framework**, deployed on **Render**.
+Django REST Framework backend for a document-management application with AI-assisted question answering.
 
----
+## Capabilities
 
-## 🚀 Features
-- JWT-based authentication (login, logout, register)
-- Document management API (upload, update, delete, list)
-- AI-powered Q&A endpoint using Gemini & Hugging Face APIs
-- Secure per-user document storage
+- User registration and JWT-based authentication.
+- Document upload, listing, update and deletion.
+- Per-user document access and storage workflows.
+- AI question-answering integration using external model providers (Gemini and Hugging Face, as configured by the application).
 
----
+## Architecture
 
-## 🛠️ Tech Stack
-- **Django**
-- **Django REST Framework**
-- **PostgreSQL (or SQLite for local)**
-- **JWT Authentication**
-- **Render** (Hosting)
-
----
-
-## 📦 Installation (Local Development)
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/ManageMyDocument-backend.git
-   cd ManageMyDocument-backend
-   ```
-
-2. Create a virtual environment & activate it:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # Mac/Linux
-   venv\Scripts\activate    # Windows
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Run migrations & start server:
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
-
----
-
-## ⚙️ Environment Setup
-Create a `.env` file in the project root with the following:
-
-```env
-SECRET_KEY=your_django_secret_key
-DEBUG=True
-DATABASE_URL=your_database_url
-GEMINI_API_KEY=your_gemini_api_key
-HF_API_KEY=your_huggingface_api_key
+```mermaid
+flowchart LR
+    UI[React client] --> API[Django REST API]
+    API --> Auth[JWT authentication]
+    API --> DB[(Database)]
+    API --> Files[Document storage]
+    API --> AI[AI provider adapters]
 ```
 
----
+## Technology
 
-## 📡 API Endpoints
-| Method | Endpoint             | Description                |
-|--------|----------------------|----------------------------|
-| POST   | `/register/`         | Register a new user        |
-| POST   | `/login/`            | Obtain JWT token           |
-| POST   | `/logout/`           | Invalidate token/session   |
-| GET    | `/documents/`        | List user documents        |
-| POST   | `/documents/`        | Upload a document          |
-| PUT    | `/documents/<id>/`   | Update document name       |
-| DELETE | `/documents/<id>/`   | Delete a document          |
-| POST   | `/ask/`              | Ask AI about a document    |
+Python · Django · Django REST Framework · JWT · PostgreSQL / SQLite · Gemini API · Hugging Face
 
----
+## Local development
 
-## 🌐 Deployment
-- Hosted on **Render**  
-  URL: `https://ManageMyDocument-backend.onrender.com`
+```bash
+git clone https://github.com/Sandeep-kumar-IITR/ManageMyDoc.git
+cd ManageMyDoc
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+```
 
----
+Configure environment variables in a local, untracked `.env` file. At minimum, provide the Django secret key, database configuration and any AI provider credentials required by the code. Never commit real credentials.
 
-## 📚 References
-- [Django REST Framework Docs](https://www.django-rest-framework.org/)
-- [Render Deployment Guide](https://render.com/docs)
+Run migrations and start the development server:
+
+```bash
+python manage.py migrate
+python manage.py runserver
+```
+
+## API surface
+
+The original project documentation describes registration, login/logout, document CRUD and an AI question-answering endpoint. Check the URL configuration and serializers for the authoritative request/response schemas before integrating a client.
+
+## Repository hygiene
+
+Before making this repository a public portfolio project, remove local databases, user-uploaded documents, generated files and any credentials from the repository and its Git history. Use synthetic sample data and documented environment-variable names instead.
+
+## Related project
+
+- [ManageMyDocument frontend](https://github.com/Sandeep-kumar-IITR/ManageMyDocument)
+
+## Author
+
+**Sandeep Kumar** · [GitHub](https://github.com/Sandeep-kumar-IITR)
